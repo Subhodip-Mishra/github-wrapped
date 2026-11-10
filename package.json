@@ -1,0 +1,12 @@
+{
+  "name": "github-wrapped-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo for GitHub Wrapped - FastAPI Backend & Next.js Frontend",
+  "scripts": {
+    "dev:backend": "cd backend && ./venv/bin/uvicorn app.main:app --reload --port 8000",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build"
+  }
+}
+
