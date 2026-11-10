@@ -104,7 +104,7 @@ interface Theme {
 /*  Constants                                                                  */
 /* -------------------------------------------------------------------------- */
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 const SAMPLE_USERS = ["torvalds", "shadcn", "leerob", "octocat"];
 const YEARS = [2026, 2025, 2024, 2023, 2022, 2021];
 const CARD_WIDTH = 480;
@@ -1116,7 +1116,7 @@ export default function Home() {
         window.history.replaceState(null, "", `?${params.toString()}`);
       } catch (e: unknown) {
         if (e instanceof TypeError) {
-          setError(`Can't reach the backend at ${API_URL}. Is Uvicorn running?`);
+          setError(`Can't reach the backend API${API_URL ? ` at ${API_URL}` : ""}. Is the server running?`);
         } else if (e instanceof Error) {
           setError(e.message);
         } else {
